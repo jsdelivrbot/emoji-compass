@@ -4,8 +4,6 @@ const {
 } = require("../chatdatacontrol/slack.js");
 const { fetchSlackHistory, stringMessageText } = require("../chatdatamodel/slack.js");
 
-
-
 module.exports = function(controller) {
   controller.hears(
     ["mood"],
