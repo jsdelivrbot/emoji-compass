@@ -7,7 +7,7 @@ module.exports = function(controller) {
     (bot, message) => {
       bot.startConversation(message, (err, convo) => {
         getSlackEmojis(err, data => {
-          console.log('asldkfj' data);
+          console.log("asldkfj", data);
           convo.say(data);
           convo.next();
         });
