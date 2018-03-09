@@ -6,8 +6,10 @@ module.exports = function(controller) {
     "direct_message,direct_mention",
     (bot, message) => {
       bot.startConversation(message, (err, convo) => {
-        convo.say(`Hello`);
-        convo.next();
+        getSlackEmojis(err, data => {
+          convo.say(data);
+          convo.next();
+        });
       });
     }
   );
