@@ -9,16 +9,10 @@ module.exports = function(controller) {
     ["mood"],
     "direct_message,direct_mention",
     (bot, message) => {
-      if (bot) {
-        bot.startConversation(message, function(err, convo) {
-          fetchSlackHistory()
-            .then(history => {
-              convo.say(history);
-              convo.next();
-            })
-            .catch(next);
-        });
-      }
+      bot.startConversation(message, function(err, convo) {
+        convo.say("Hello");
+        convo.next();
+      });
     }
   );
 };
