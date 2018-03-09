@@ -28,12 +28,12 @@ function getSlackToneData(req, res, next) {
     .catch(next);
 }
 
-function getSlackEmojis(req, res, next) {
+function getSlackEmojis(cb) {
   fetchSlackHistory()
     .then(history => {
       stringMessageText(history, (err, text) => {
         fetchToneEmojis(text, (err, emojis) => {
-          res.send(emojis);
+          cb(null, emojis);
         });
       });
     })
